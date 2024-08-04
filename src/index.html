@@ -1749,7 +1749,7 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
     const clearChatWindow = () => {
 	 var chatMessage = iframeWindow.document.querySelector('#message-text');
 	alert('chatMessage:' + chatMessage.innerHTML);
-	const chatWindow = iframeWindow.document.querySelector('#chat-area py-4 px-4');
+	const chatWindow = iframeWindow.document.querySelector('#chat-area.py-4.px-4');
         if (chatWindow) {
             chatWindow.innerHTML = '';
         }
@@ -1759,7 +1759,7 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
     const listenForCustomActions = (event) => {
        // Check if the message is from the expected source
 	    alert('I am here in custom action with event:' +event);
-        if (source !== iframeWindow) return;
+        //if (source !== iframeWindow) return;
         alert('here event was triggered');
         try {
             const message = JSON.parse(event.data);
