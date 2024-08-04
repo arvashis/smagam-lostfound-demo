@@ -1743,6 +1743,7 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
      // Function to clear the chat window
      function clearChatWindow() {
        var chatWindow = document.getElementById('chat-container');
+	debugger('chatwindow:' + chatWindow.innerHTML);
        if (chatWindow) {
          chatWindow.innerHTML = '';
        }
