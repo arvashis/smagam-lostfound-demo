@@ -1756,7 +1756,7 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
     const listenForCustomActions = (event) => {
         // Optionally check for the event origin here if needed
         // if (event.origin !== 'http://example.com') return;
-        
+        alert('here event was triggered');
         try {
             const message = JSON.parse(event.data);
             if (message.action === 'clear_chat_window') {
