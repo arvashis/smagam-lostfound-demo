@@ -1753,6 +1753,7 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 
      // Listen for messages from the chatbot
      window.addEventListener('message', function(event) {
+ 	alert('event:' + event.data);
        var data = event.data;
        if (data.action == 'clear_chat_window') {
          clearChatWindow();
