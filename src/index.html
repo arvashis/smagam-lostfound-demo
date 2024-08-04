@@ -1758,6 +1758,7 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
     // Function to listen for custom actions
     const listenForCustomActions = (event) => {
        // Check if the message is from the expected source
+	    alert('I am here in custom action with event:' +event);
         if (source !== iframeWindow) return;
         alert('here event was triggered');
         try {
