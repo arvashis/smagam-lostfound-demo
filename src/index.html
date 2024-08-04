@@ -1751,14 +1751,25 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
        }
      }
 
-     // Listen for messages from the chatbot
-     window.addEventListener('message', function(event) {
- 	alert('event:' + event.data);
-       var data = event.data;
-       if (data.action == 'clear_chat_window') {
-         clearChatWindow();
-       }
-     });
+       // Function to listen for custom actions
+    function listenForCustomActions(event) {
+        var data = event.data;
+	alert('eventdata:' + data);
+        try {
+            var message = JSON.parse(data);
+            if (message.action === 'clear_chat_window') {
+                clearChatWindow();
+            }
+        } catch (e) {
+            console.error('Error parsing message data:', e);
+        }
+    }
+
+    // Add event listener for messages from the chatbot
+    window.addEventListener('message', listenForCustomActions, false);
+});
+
+
    </script>
 </body>
 </html>
