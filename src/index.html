@@ -1740,30 +1740,32 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"8ac2382789d60943","serverTiming":{"name":{"cfL4":true}},"version":"2024.7.0","token":"f48ab49063a14a1aae277f6843b293c3"}' crossorigin="anonymous"></script>
 <script src="https://app.chatgptbuilder.io/webchat/plugin.js?v=5"></script><script>ktt10.setup({id:"so8j8qRtwN6nIVl0",accountId:"1168342",color:"#206471"})</script>
 <script>
-     // Function to clear the chat window
-     function clearChatWindow() {
-	
-       var chatMessage = document.querySelector('#message-text');
-	alert('chatMessage:' + chatMessage.innerHTML);
-	chatWindow = document.gquerySelctor('#chat-area py-4 px-4');
-       if (chatWindow) {
-         chatWindow.innerHTML = '';
-       }
-     }
 
-       // Function to listen for custom actions
-    function listenForCustomActions(event) {
-        var data = event.data;
-	alert('eventdata:' + data);
+   document.addEventListener('DOMContentLoaded', function() {
+    // Function to clear the chat window
+    const clearChatWindow = () => {
+	 var chatMessage = document.querySelector('#message-text');
+	alert('chatMessage:' + chatMessage.innerHTML);
+	const chatWindow = document.querySelector('#chat-area py-4 px-4');
+        if (chatWindow) {
+            chatWindow.innerHTML = '';
+        }
+    };
+
+    // Function to listen for custom actions
+    const listenForCustomActions = (event) => {
+        // Optionally check for the event origin here if needed
+        // if (event.origin !== 'http://example.com') return;
+        
         try {
-            var message = JSON.parse(data);
+            const message = JSON.parse(event.data);
             if (message.action === 'clear_chat_window') {
                 clearChatWindow();
             }
         } catch (e) {
-            console.error('Error parsing message data:', e);
+            console.error('Error parsing message data:', e.message);
         }
-    }
+    };
 
     // Add event listener for messages from the chatbot
     window.addEventListener('message', listenForCustomActions, false);
