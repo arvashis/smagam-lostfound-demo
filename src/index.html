@@ -1744,7 +1744,7 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
    document.addEventListener('DOMContentLoaded', function() {
     const iframe = document.getElementById('ktt10-iframe'); // iframe_id
     const iframeWindow = iframe.contentWindow;
-
+    alert('iframewindow:'+ iframeWindow);
     // Function to clear the chat window
     const clearChatWindow = () => {
 	 var chatMessage = iframeWindow.document.querySelector('#message-text');
