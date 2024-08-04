@@ -15,23 +15,6 @@
             max-width: 100%;
             max-height: 100%;
         }
-
-	 	
-	.ktt10-btn {
-    width: 240px !important; /* Controls chat bubble width */
-    height: 240px !important; /* Controls chat bubble height */
-    border-radius: 50% !important; /* Make the chat bubble circular */
-    bottom: 20px !important; /* Distance from the bottom edge of the screen */
-    center: 20px !important; /* Distance from the right edge of the screen */
-}
-
-.ktt10-btn img {
-    height: 70% !important; /* Controls the height of the inside image */
-    width: 70% !important; /* Controls the width of the inside image */
-    object-fit: contain !important; /* Ensures the image fits within the bubble */
-}
-
-	
     </style>
 
 	
@@ -45,7 +28,23 @@
 	<span align:"center"><h2>Lost & Found Assistance</h2></span>
 	<script src="https://app.chatgptbuilder.io/webchat/plugin.js?v=5"></script><script>ktt10.setup({id:"so8j8qRtwN6nIVl0",accountId:"1168342",color:"#2ECCEB", icon:"L&FBotLaunchIcon.png"})</script>
 <script>
+	
+	<style> 	
+	.ktt10-btn {
+    width: 240px !important; /* Controls chat bubble width */
+    height: 240px !important; /* Controls chat bubble height */
+    border-radius: 50% !important; /* Make the chat bubble circular */
+    bottom: 20px !important; /* Distance from the bottom edge of the screen */
+    center: 20px !important; /* Distance from the right edge of the screen */
+}
 
+.ktt10-btn img {
+    height: 70% !important; /* Controls the height of the inside image */
+    width: 70% !important; /* Controls the width of the inside image */
+    object-fit: contain !important; /* Ensures the image fits within the bubble */
+	}
+</style>
+	
    document.addEventListener('DOMContentLoaded', function() {
     const iframe = document.getElementById('ktt10-iframe'); // iframe_id
     const iframeWindow = iframe.contentWindow;
