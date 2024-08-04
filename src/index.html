@@ -1739,6 +1739,22 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 </script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"8ac2382789d60943","serverTiming":{"name":{"cfL4":true}},"version":"2024.7.0","token":"f48ab49063a14a1aae277f6843b293c3"}' crossorigin="anonymous"></script>
 <script src="https://app.chatgptbuilder.io/webchat/plugin.js?v=5"></script><script>ktt10.setup({id:"so8j8qRtwN6nIVl0",accountId:"1168342",color:"#206471"})</script>
+<script>
+     // Function to clear the chat window
+     function clearChatWindow() {
+       var chatWindow = document.getElementById('chat-window');
+       if (chatWindow) {
+         chatWindow.innerHTML = '';
+       }
+     }
 
+     // Listen for messages from the chatbot
+     window.addEventListener('message', function(event) {
+       var data = event.data;
+       if (data.action == 'clear_chat_window') {
+         clearChatWindow();
+       }
+     });
+   </script>
 </body>
 </html>
