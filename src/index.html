@@ -1744,16 +1744,15 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
    document.addEventListener('DOMContentLoaded', function() {
     const iframe = document.getElementById('ktt10-iframe'); // iframe_id
     const iframeWindow = iframe.contentWindow;
-    alert('iframewindow:'+ iframeWindow);
-    // Function to clear the chat window
-    const clearChatWindow = () => {
-	 var chatMessage = iframeWindow.document.querySelector('#message-text');
-	alert('chatMessage:' + chatMessage.innerHTML);
-	const chatWindow = iframeWindow.document.querySelector('#chat-area.py-4.px-4');
-        if (chatWindow) {
-            chatWindow.innerHTML = '';
-        }
-    };
+   // Wait for the iframe content to load
+    iframe.onload = function() {
+        // Function to clear the chat window
+        const clearChatWindow = () => {
+            const chatWindow = document.querySelector('#chat-area.py-4.px-4'); // Ensure this selector matches your HTML structure
+            if (chatWindow) {
+                chatWindow.innerHTML = '';
+            }
+        };
 
     // Function to listen for custom actions
     const listenForCustomActions = (event) => {
@@ -1772,7 +1771,7 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
     };
 
     // Add event listener for messages from the chatbot
-    iframeWindow.addEventListener('message', listenForCustomActions, false);
+    window.addEventListener('message', listenForCustomActions, false);
 });
 
 
