@@ -60,10 +60,12 @@
     object-fit: contain !important; /* Ensures the image fits within the bubble */
 	}
 
-
-.ktt10-iframe{
-      min-height:400px !important;
-      min-width:600px !important;
+/* Ensure this is placed after the original styles */
+@media (max-width: 576px), (max-height: 520px) {
+    .example {
+        width: 150px !important;
+        height: 150px !important;
+    }
 }
 </style>
 	
