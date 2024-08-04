@@ -1742,11 +1742,14 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 <script>
 
    document.addEventListener('DOMContentLoaded', function() {
+    const iframe = document.getElementById('ktt10-iframe'); // iframe_id
+    const iframeWindow = iframe.contentWindow;
+
     // Function to clear the chat window
     const clearChatWindow = () => {
-	 var chatMessage = document.querySelector('#message-text');
+	 var chatMessage = iframeWindow.document.querySelector('#message-text');
 	alert('chatMessage:' + chatMessage.innerHTML);
-	const chatWindow = document.querySelector('#chat-area py-4 px-4');
+	const chatWindow = iframeWindow.document.querySelector('#chat-area py-4 px-4');
         if (chatWindow) {
             chatWindow.innerHTML = '';
         }
@@ -1754,8 +1757,8 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 
     // Function to listen for custom actions
     const listenForCustomActions = (event) => {
-        // Optionally check for the event origin here if needed
-        // if (event.origin !== 'http://example.com') return;
+       // Check if the message is from the expected source
+        if (source !== iframeWindow) return;
         alert('here event was triggered');
         try {
             const message = JSON.parse(event.data);
