@@ -1772,7 +1772,7 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
     };
 
     // Add event listener for messages from the chatbot
-    window.addEventListener('message', listenForCustomActions, false);
+    iframeWindow.addEventListener('message', listenForCustomActions, false);
 });
 
 
