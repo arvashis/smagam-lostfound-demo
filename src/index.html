@@ -67,43 +67,41 @@
 
 </style>
 	
-		
 <script>
 
    document.addEventListener('DOMContentLoaded', function() {
-    const  = document.getElementById('ktt10-iframe'); // iframe_id
-    const iframeWindow = iframe.contentWindow;
-   // Wait for the iframe content to load
-    iframe.onload = function() {
-        // Function to clear the chat window
-        const clearChatWindow = () => {
-            const chatWindow = document.querySelector('#chat-area.py-4.px-4'); // Ensure this selector matches your HTML structure
-            if (chatWindow) {
-                chatWindow.innerHTML = '';
+            const iframe = document.getElementById('ktt10-iframe');
+            if (!iframe) {
+                console.error('Iframe element not found.');
+                return;
             }
-        };
 
-    // Function to listen for custom actions
-    const listenForCustomActions = (event) => {
-       // Check if the message is from the expected source
-	    alert('I am here in custom action with event:' +event);
-        //if (source !== iframeWindow) return;
-        alert('here event was triggered');
-        try {
-            const message = JSON.parse(event.data);
-	    alert('message:' + message);
-            if (message.action === 'clear_chat_window') {
-                clearChatWindow();
-            }
-        } catch (e) {
-            console.error('Error parsing message data:', e.message);
-        }
-    };
+            const iframeWindow = iframe.contentWindow;
+		alert('here:' + iframeWindow)
+            iframe.onload = function() {
+                const clearChatWindow = () => {
+                    const chatWindow = iframe.contentDocument.querySelector('#chat-area.py-4.px-4');
+                    if (chatWindow) {
+                        chatWindow.innerHTML = '';
+                    }
+                };
 
-    // Add event listener for messages from the chatbot
-    window.addEventListener('message', listenForCustomActions, false);
-});
+                const listenForCustomActions = (event) => {
+                    if (event.source !== iframeWindow) return;
 
+                    try {
+                        const message = JSON.parse(event.data);
+                        if (message.action === 'clear_chat_window') {
+                            clearChatWindow();
+                        }
+                    } catch (e) {
+                        console.error('Error parsing message data:', e.message);
+                    }
+                };
+
+                window.addEventListener('message', listenForCustomActions, false);
+            };
+        });
 
    </script>
 </body>
