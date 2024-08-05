@@ -91,6 +91,7 @@
         alert('here event was triggered');
         try {
             const message = JSON.parse(event.data);
+	    alert('message:' + message);
             if (message.action === 'clear_chat_window') {
                 clearChatWindow();
             }
