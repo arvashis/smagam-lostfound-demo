@@ -69,6 +69,17 @@
 	
 <script>
 
+	// Function to handle the custom event
+const handleCustomEvent = (event) => {
+    const message = {
+        action: 'clear_chat_window'
+    };
+    window.parent.postMessage(JSON.stringify(message), '*');
+};
+
+// Listen for the custom event
+document.addEventListener('customChatEvent', handleCustomEvent);
+
    document.addEventListener('DOMContentLoaded', function() {
             const iframe = document.getElementById('ktt10-iframe');
             if (!iframe) {
