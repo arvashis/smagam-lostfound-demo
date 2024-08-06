@@ -42,7 +42,7 @@
         /* stylize the center image */
         #variableImage {
             width: 100%;
-            height: 100%;
+            height: 550px;
             object-fit: cover;
         }
     </style>
@@ -66,7 +66,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Add more here as you find them
-            var images = ["mataji_pic1.jpg", "snm_mataji_v2.jpg", "mataji_pic3.jpg"];
+            var images = ["mataji_pic1.jpg", "snm_mataji_v2.jpg", "mataji_pic3.jpg", "mataji_pic4.jpeg"];
             var currentIndex = parseInt(localStorage.getItem('currentImageIndex')) || 0;
             document.getElementById('variableImage').src = images[currentIndex];
             currentIndex = (currentIndex + 1) % images.length;
@@ -103,55 +103,6 @@
             height: 100% !important;
         }
     </style>
-
-    <script>
-
-        // Function to handle the custom event
-        const handleCustomEvent = (event) => {
-            const message = {
-                action: 'clear_chat_window'
-            };
-            window.parent.postMessage(JSON.stringify(message), '*');
-        };
-
-        // Listen for the custom event
-        document.addEventListener('customChatEvent', handleCustomEvent);
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const iframe = document.getElementById('ktt10-iframe');
-            if (!iframe) {
-                console.error('Iframe element not found.');
-                return;
-            }
-
-            const iframeWindow = iframe.contentWindow;
-            //alert('here:' + iframeWindow)
-            iframe.onload = function () {
-                const clearChatWindow = () => {
-                    const chatWindow = iframe.contentDocument.querySelector('#chat-area.py-4.px-4');
-                    if (chatWindow) {
-                        chatWindow.innerHTML = '';
-                    }
-                };
-
-                const listenForCustomActions = (event) => {
-                    if (event.source !== iframeWindow) return;
-
-                    try {
-                        const message = JSON.parse(event.data);
-                        if (message.action === 'clear_chat_window') {
-                            clearChatWindow();
-                        }
-                    } catch (e) {
-                        console.error('Error parsing message data:', e.message);
-                    }
-                };
-
-                window.addEventListener('message', listenForCustomActions, false);
-            };
-        });
-
-    </script>
 </body>
 
 </html>
