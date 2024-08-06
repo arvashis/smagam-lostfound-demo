@@ -120,4 +120,38 @@
         document.addEventListener('DOMContentLoaded', function () {
             const iframe = document.getElementById('ktt10-iframe');
             if (!iframe) {
-             
+                console.error('Iframe element not found.');
+                return;
+            }
+
+            const iframeWindow = iframe.contentWindow;
+            //alert('here:' + iframeWindow)
+            iframe.onload = function () {
+                const clearChatWindow = () => {
+                    const chatWindow = iframe.contentDocument.querySelector('#chat-area.py-4.px-4');
+                    if (chatWindow) {
+                        chatWindow.innerHTML = '';
+                    }
+                };
+
+                const listenForCustomActions = (event) => {
+                    if (event.source !== iframeWindow) return;
+
+                    try {
+                        const message = JSON.parse(event.data);
+                        if (message.action === 'clear_chat_window') {
+                            clearChatWindow();
+                        }
+                    } catch (e) {
+                        console.error('Error parsing message data:', e.message);
+                    }
+                };
+
+                window.addEventListener('message', listenForCustomActions, false);
+            };
+        });
+
+    </script>
+</body>
+
+</html>
