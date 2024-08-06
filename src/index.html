@@ -1,14 +1,15 @@
-
 <!doctype html>
 <html lang="en-GB">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="/cdn-cgi/apps/head/tzE6ur0T0ULgmGhzo_nkSrXnbRU.js"></script><link rel="profile" href="https://gmpg.org/xfn/11">
-<title>Oneness Conference, Seattle, United States Of America &#8211; Sant Nirankari Mission</title>
- <style>
-<style>
-        body, html {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/cdn-cgi/apps/head/tzE6ur0T0ULgmGhzo_nkSrXnbRU.js"></script>
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <title>Oneness Conference, Seattle, United States Of America &#8211; Sant Nirankari Mission</title>
+    <style>
+        <style>body,
+        html {
             height: 100%;
             margin: 0;
             display: flex;
@@ -16,71 +17,107 @@
             align-items: center;
             flex-direction: column;
         }
+
         .centered-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
+            height: 100%;
         }
+
         .centered-container img {
             max-width: 100%;
         }
+
         .centered-container span {
             display: block;
             width: 100%;
         }
+
         hr {
             width: 100%;
         }
+
+        /* stylize the center image */
+        #variableImage {
+            width: 1400px;
+            height: 400px;
+            object-fit: cover;
+        }
     </style>
+
 <body>
-   <div class="centered-container">
-        <img src="SNM_S_TOP.png" alt="samagam invite.png">
+    <div class="centered-container">
+        <img src="Logo.webp" alt="samagam invite.png">
         <span><hr></span>
-        <img src="SNM_MataJi.png" alt="samagam invite.png" class="centered-image">
+
+        <img id="variableImage" src="" alt="samagam invite.png" class="centered-image">
         <span><hr></span>
+
         <img src="SNM_Samagam.png" alt="samagam invite.png">
         <span><hr></span>
-	<script src="https://app.chatgptbuilder.io/webchat/plugin.js?v=5"></script><script>ktt10.setup({id:"so8j8qRtwN6nIVl0",accountId:"1168342",color:"#2ECCEB", icon:"L&FBotLaunchIcon.png", loadMessages: false}  )</script>
-  </div>
-<!-- webbot customization styles -->
-	<style> 
-		
-	.ktt10-btn {
-    width: 240px !important; /* Controls chat bubble width */
-    height: 240px !important; /* Controls chat bubble height */
-    border-radius: 50% !important; /* Make the chat bubble circular */
-    bottom: 20px !important; /* Distance from the bottom edge of the screen */
-    right: 20px !important; /* Distance from the right edge of the screen */
-}
+        
+        <script src="https://app.chatgptbuilder.io/webchat/plugin.js?v=5"></script>
+        <script>ktt10.setup({ id: "so8j8qRtwN6nIVl0", accountId: "1168342", color: "#2ECCEB", icon: "L&FBotLaunchIcon.png", loadMessages: false })</script>
+    </div>
 
-.ktt10-btn img {
-    height: 70% !important; /* Controls the height of the inside image */
-    width: 70% !important; /* Controls the width of the inside image */
-    object-fit: contain !important; /* Ensures the image fits within the bubble */
-	}
+    <!--JS to make the center image alternate-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Add more here as you find them
+            var images = ["mataji_pic1.jpg", "snm_mataji_v2.jpg", "mataji_pic3.jpg"];
+            var currentIndex = parseInt(localStorage.getItem('currentImageIndex')) || 0;
+            document.getElementById('variableImage').src = images[currentIndex];
+            currentIndex = (currentIndex + 1) % images.length;
+            localStorage.setItem('currentImageIndex', currentIndex);
+        });
+    </script>
 
-.ktt10-flt2{
-    width: 1200px !important;
-    height: 500px !important
-}
+    <!-- webbot customization styles -->
+    <style>
+        .ktt10-btn {
+            width: 240px !important;
+            /* Controls chat bubble width */
+            height: 240px !important;
+            /* Controls chat bubble height */
+            border-radius: 50% !important;
+            /* Make the chat bubble circular */
+            bottom: 20px !important;
+            /* Distance from the bottom edge of the screen */
+            right: 20px !important;
+            /* Distance from the right edge of the screen */
+        }
 
-</style>
-	
-<script>
+        .ktt10-btn img {
+            height: 70% !important;
+            /* Controls the height of the inside image */
+            width: 70% !important;
+            /* Controls the width of the inside image */
+            object-fit: contain !important;
+            /* Ensures the image fits within the bubble */
+        }
 
-	// Function to handle the custom event
-const handleCustomEvent = (event) => {
-    const message = {
-        action: 'clear_chat_window'
-    };
-    window.parent.postMessage(JSON.stringify(message), '*');
-};
+        .ktt10-flt2 {
+            width: 99% !important;
+            height: 100% !important;
+        }
+    </style>
 
-// Listen for the custom event
-document.addEventListener('customChatEvent', handleCustomEvent);
+    <script>
 
-   document.addEventListener('DOMContentLoaded', function() {
+        // Function to handle the custom event
+        const handleCustomEvent = (event) => {
+            const message = {
+                action: 'clear_chat_window'
+            };
+            window.parent.postMessage(JSON.stringify(message), '*');
+        };
+
+        // Listen for the custom event
+        document.addEventListener('customChatEvent', handleCustomEvent);
+
+        document.addEventListener('DOMContentLoaded', function () {
             const iframe = document.getElementById('ktt10-iframe');
             if (!iframe) {
                 console.error('Iframe element not found.');
@@ -88,8 +125,8 @@ document.addEventListener('customChatEvent', handleCustomEvent);
             }
 
             const iframeWindow = iframe.contentWindow;
-		alert('here:' + iframeWindow)
-            iframe.onload = function() {
+            //alert('here:' + iframeWindow)
+            iframe.onload = function () {
                 const clearChatWindow = () => {
                     const chatWindow = iframe.contentDocument.querySelector('#chat-area.py-4.px-4');
                     if (chatWindow) {
@@ -114,6 +151,7 @@ document.addEventListener('customChatEvent', handleCustomEvent);
             };
         });
 
-   </script>
+    </script>
 </body>
+
 </html>
