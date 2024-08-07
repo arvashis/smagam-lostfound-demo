@@ -42,20 +42,20 @@
         /* stylize the center image */
         #variableImage {
             width: 100%;
-            height: 550px;
+            height: 360px;
             object-fit: cover;
         }
     </style>
 
 <body>
     <div class="centered-container">
-        <img src="LogoSeattle.png" alt="samagam invite.png">
-        <span><hr></span>
-
         <img id="variableImage" src="" alt="samagam invite.png" class="centered-image">
         <span><hr></span>
 
         <img src="Oneness.png" alt="samagam invite.png">
+        <span><hr></span>
+
+        <img src="LogoSeattle.png" alt="samagam invite.png">
         <span><hr></span>
 
         <script src="https://app.chatgptbuilder.io/webchat/plugin.js?v=5"></script>
@@ -65,12 +65,17 @@
     <!--JS to make the center image alternate-->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Add more here as you find them
             var images = ["mataji_pic1.jpg", "snm_mataji_v2.jpg", "mataji_pic3.jpg", "mataji_pic4.jpeg"];
             var currentIndex = parseInt(localStorage.getItem('currentImageIndex')) || 0;
-            document.getElementById('variableImage').src = images[currentIndex];
-            currentIndex = (currentIndex + 1) % images.length;
-            localStorage.setItem('currentImageIndex', currentIndex);
+
+            function changeImage() {
+                document.getElementById('variableImage').src = images[currentIndex];
+                currentIndex = (currentIndex + 1) % images.length;
+                localStorage.setItem('currentImageIndex', currentIndex);
+            }
+
+            changeImage(); // Change the image immediately on page load
+            setInterval(changeImage, 60000); // Change the image every 60 seconds
         });
     </script>
 
@@ -99,8 +104,10 @@
         }
 
         .ktt10-flt2 {
-            width: 99% !important;
-            height: 100% !important;
+            width: 82% !important;
+            height: 55% !important;
+            bottom: 0px !important;
+            right: 17% !important;
         }
     </style>
 </body>
