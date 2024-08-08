@@ -46,8 +46,14 @@
             object-fit: cover;
         }
 
+        .message {
+            max-width: 90%; /* Adjusted message box size */
+            padding: 15px; /* Increased padding for better readability */
+            font-size: 1rem; /* Increased font size for better readability */
+        }
+
         .chat-area {
-            background: url('background.jpg') center/cover no-repeat; /* Combined background properties */
+            background: url('your-background-image.jpg') center/cover no-repeat; /* Set your background image */
             border-radius: 8px;
             overflow-y: auto;
             overflow-x: hidden;
@@ -57,13 +63,10 @@
             left: 0;
             right: 0;
             padding: 20px;
-            padding-bottom: 65px; /* Ensuring last message is fully visible */
+            padding-bottom: 65px; /* Ensuring the last message is fully visible */
             box-sizing: border-box;
         }
 
-        .message {
-            max-width: 70%;
-        }
     </style>
 
 <body>
