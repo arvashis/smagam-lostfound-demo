@@ -45,28 +45,6 @@
             height: 450px;
             object-fit: cover;
         }
-
-        .message {
-            max-width: 90%; /* Adjusted message box size */
-            padding: 15px; /* Increased padding for better readability */
-            font-size: 1rem; /* Increased font size for better readability */
-        }
-
-        .chat-area {
-            background: url('your-background-image.jpg') center/cover no-repeat; /* Set your background image */
-            border-radius: 8px;
-            overflow-y: auto;
-            overflow-x: hidden;
-            position: fixed;
-            top: 60px;
-            bottom: 60px;
-            left: 0;
-            right: 0;
-            padding: 20px;
-            padding-bottom: 65px; /* Ensuring the last message is fully visible */
-            box-sizing: border-box;
-        }
-
     </style>
 
 <body>
@@ -130,6 +108,16 @@
             height: 55% !important;
             bottom: 0px !important;
             right: 17% !important;
+        }
+
+        .message {
+            max-width: 100%; /* Adjusted message box size */
+            padding: 15px; /* Increased padding for better readability */
+            font-size: 1rem; /* Increased font size for better readability */
+        }
+
+        .chat-area {
+            background-color: red;
         }
     </style>
 </body>
