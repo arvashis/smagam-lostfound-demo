@@ -87,27 +87,7 @@
       v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
   })(document, 'script');
 
-            window.voiceflow.chat.load({
-  verify: { projectID: '6689bd8342ef01ce7201e685' },
-  url: 'https://general-runtime.voiceflow.com',
-  versionID: 'production'
-}).then(() => {
-  setTimeout(function () {
-    window.voiceflow.chat.open();
-  }, 1000);
-  setTimeout(function () {
-    window.voiceflow.chat.interact({
-     
-     type: "launch",
-      payload: {
-              "Where is the event?" 
-      },
-        entities: []
-      }
-    })
-  }, 2000);
-});
-        </script>
+
     </div>
 
     <!--JS to make the center image alternate-->
