@@ -147,18 +147,18 @@
   versionID: 'production'
 }).then(() => {
   setTimeout(function () {
-    window.voiceflow.chat.open();
+  window.voiceflow.chat.open();
   }, 1000);
   setTimeout(function () {
     window.voiceflow.chat.interact({
-
-     type: "launch",
+      type: "intent",
       payload: {
-              "Where is the event?" 
-      },
+        intent: {
+          name: "Where is the event?"
+        },
         entities: []
       }
-    })
+    });
   }, 2000);
 });
       </script>
