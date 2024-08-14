@@ -135,17 +135,7 @@
                 verify: { projectID: '6689bd8342ef01ce7201e685' },
                 url: 'https://general-runtime.voiceflow.com',
                 versionID: 'production'
-              });
-            }
-            v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-        })(document, 'script');
-
-    
-            window.voiceflow.chat.load({
-  verify: { projectID: '6689bd8342ef01ce7201e685' },
-  url: 'https://general-runtime.voiceflow.com',
-  versionID: 'production'
-}).then(() => {
+              }).then(() => {
   setTimeout(function () {
   window.voiceflow.chat.open();
   }, 1000);
@@ -161,6 +151,11 @@
     });
   }, 2000);
 });
+            }
+            v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+        })(document, 'script');
+
+    
       </script>
 </body>
 
