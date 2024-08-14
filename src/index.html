@@ -72,6 +72,42 @@
 
         <script src="https://app.chatgptbuilder.io/webchat/plugin.js?v=5"></script>
         <script>ktt10.setup({ id: "so8j8qRtwN6nIVl0", accountId: "1168342", color: "#2ECCEB", icon: "L&FBotLaunchIcon.png", loadMessages: false })</script>
+
+        <!-- For load testing the event webbot, should be removed once done-->
+        <script type="text/javascript">
+  (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        window.voiceflow.chat.load({
+          verify: { projectID: '6689bd8342ef01ce7201e685' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production'
+        });
+      }
+      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+
+            window.voiceflow.chat.load({
+  verify: { projectID: '6689bd8342ef01ce7201e685' },
+  url: 'https://general-runtime.voiceflow.com',
+  versionID: 'production'
+}).then(() => {
+  setTimeout(function () {
+    window.voiceflow.chat.open();
+  }, 1000);
+  setTimeout(function () {
+    window.voiceflow.chat.interact({
+     
+     type: "launch",
+      payload: {
+              "Where is the event?" 
+      },
+        entities: []
+      }
+    })
+  }, 2000);
+});
+        </script>
     </div>
 
     <!--JS to make the center image alternate-->
