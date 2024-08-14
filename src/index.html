@@ -127,6 +127,9 @@
 
     
         <!-- For load testing the event webbot, should be removed once done-->
+var array_prompts = ["When is the event?", "Where is it?", "How do I get there"]
+var random_num = Math.floor(Math.random()*array_prompts.length);
+var random_prompt= array_prompts[random_num]
 <script type="text/javascript">
         (function(d, t) {
             var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
@@ -146,8 +149,7 @@
         intent: {
           name: "EventLocation"
         },
-        "query": "What is the location?",
-          
+        "query": random_prompt,
         entities: []
       }
     });
