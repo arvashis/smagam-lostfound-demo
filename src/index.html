@@ -69,12 +69,10 @@
 
         <img src="LogoSeattle.png" alt="samagam invite.png">
         <span><hr></span>
-<!-- temporary to load test webbot
+
         <script src="https://app.chatgptbuilder.io/webchat/plugin.js?v=5"></script>
         <script>ktt10.setup({ id: "so8j8qRtwN6nIVl0", accountId: "1168342", color: "#2ECCEB", icon: "L&FBotLaunchIcon.png", loadMessages: false })</script>
 
--->
-    </div>
 
     <!--JS to make the center image alternate-->
     <script>
@@ -124,45 +122,6 @@
             right: 17% !important;
         }
     </style>
-
-    
-        <!-- For load testing the event webbot, should be removed once done-->
-
-<script type="text/javascript">
-    var array_prompts = ["When is the event?", "Where is it?", "How do I get there"];
-var random_num = Math.floor(Math.random()*array_prompts.length);
-var random_prompt= array_prompts[random_num];
-    
-        (function(d, t) {
-            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-            v.onload = function() {
-              window.voiceflow.chat.load({
-                verify: { projectID: '6689bd8342ef01ce7201e685' },
-                url: 'https://general-runtime.voiceflow.com',
-                versionID: 'production'
-              }).then(() => {
-  setTimeout(function () {
-  window.voiceflow.chat.open();
-  }, 1000);
-  setTimeout(function () {
-    window.voiceflow.chat.interact({
-      type: "intent",
-      payload: {
-        intent: {
-          name: "EventLocation"
-        },
-        "query": random_prompt,
-        entities: []
-      }
-    });
-  }, 2000);
-});
-            }
-            v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-        })(document, 'script');
-
-    
-      </script>
 </body>
 
 </html>
